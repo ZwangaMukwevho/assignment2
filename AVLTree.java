@@ -5,6 +5,9 @@
 
 public class AVLTree<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
 {
+
+	int findCount = 0;
+	int insertCount = 0;
    public int height ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -45,14 +48,19 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
    public BinaryTreeNode<dataType> balance ( BinaryTreeNode<dataType> p )
    {
       fixHeight (p);
+	
+	insertCount = insertCount + 1;
       if (balanceFactor (p) == 2)
       {
+	insertCount = insertCount + 1;
          if (balanceFactor (p.right) < 0)
             p.right = rotateRight (p.right);
          return rotateLeft (p);
       }
+	insertCount = insertCount + 1;
       if (balanceFactor (p) == -2)
       {
+	insertCount = insertCount + 1;
          if (balanceFactor (p.left) > 0)
             p.left = rotateLeft (p.left);
          return rotateRight (p);
@@ -66,12 +74,15 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
    }
    public BinaryTreeNode<dataType> insert ( dataType d, BinaryTreeNode<dataType> node )
    {
-      if (node == null)
-         return new BinaryTreeNode<dataType> (d, null, null);
-      if (d.compareTo (node.data) <= 0)
-         node.left = insert (d, node.left);
-      else
-         node.right = insert (d, node.right);
+	insertCount = insertCount + 1;	
+      if (node == null){
+         return new BinaryTreeNode<dataType> (d, null, null);}
+      if (d.compareTo (node.data) <= 0){
+	insertCount = insertCount +1;
+         node.left = insert (d, node.left);}
+      else{
+	insertCount = insertCount +1;
+         node.right = insert (d, node.right);}
       return balance (node);
    }
    
@@ -125,14 +136,20 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
    }
    public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
    {
-      if (d.compareTo (node.data) == 0) 
-         return node;
-      else if (d.compareTo (node.data) < 0)
-         return (node.left == null) ? null : find (d, node.left);
-      else
-         return (node.right == null) ? null : find (d, node.right);
+      findCount = findCount +1;
+      if (d.compareTo (node.data) == 0){
+         return node;}
+      else if (d.compareTo (node.data) < 0){
+	 findCount = findCount +1;	
+         return (node.left == null) ? null : find (d, node.left);}
+      else{
+	findCount = findCount +1;
+         return (node.right == null) ? null : find (d, node.right);}
    }
-   
+    public int countFind(){
+	return findCount;}
+    public int countInsert(){
+	return insertCount;}
    public void treeOrder ()
    {
       treeOrder (root, 0);

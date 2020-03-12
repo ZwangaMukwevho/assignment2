@@ -86,6 +86,30 @@ public class AVLUtiles{
         DataCollection("Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt",AVLobj);
 	AVLobj.levelOrder();
 	}
+
+	public static int[] printAreas2(String a,String c)  throws FileNotFoundException
+	{
+	String check = "false";
+	String key = a;
+	AVLTree<LSObject> AVLobj = new AVLTree<LSObject> ();
+        DataCollection(c,AVLobj);
+	
+	try{
+	int[] Arr = new int[2];
+		Arr[0] = AVLobj.countInsert();		
+		Arr[1] = AVLobj.countFind();		
+	
+	return Arr;
+	
+	    }
+	catch(NullPointerException e) 
+        { int[] Arr = new int[2];
+		Arr[0] = 0;		
+		Arr[1] = 0;		
+	
+	return Arr;			
+	}
+		}
 }
 
 

@@ -62,12 +62,16 @@ public class BSTdata{
 	System.out.format("Stage %s , on the %sth , at %s:00 ",a,b,c);			
 	System.out.format("At zone %s ",value2);
 	System.out.format("Number of insert comparisons is %d", BSTobj.SearchCount());
+	System.out.format("Number of search comparisons is %d: ", BSTobj.countOps());
+	System.out.println("");
 	    }
 	catch(NullPointerException e) 
         { 
 	   System.out.format("no match was found for: %s",key);
 	System.out.println("");
-	   System.out.format("Number of insert comparisons is %d", BSTobj.SearchCount());
+	   System.out.format("Number of insert comparisons is %d ", BSTobj.SearchCount());
+	   System.out.format("Number of search comparisons is %d: ", BSTobj.countOps());
+	System.out.println("");
            
         } 			
 	

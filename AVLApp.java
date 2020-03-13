@@ -17,6 +17,7 @@ public static void main(String[] args) throws FileNotFoundException
 	AVLUtiles AVLObJ = new AVLUtiles();
 	if(args.length==3){
 	AVLObJ.printAreas(args[0],args[1],args[2]);
+	System.out.println("");
 
 	}
 	

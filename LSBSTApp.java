@@ -19,8 +19,7 @@ class LSBSTApp
 	int x;
 	x = BSTdataobj.printAreas1(args[0],args[1],args[2]);
 	System.out.println("");
-	System.out.format("number of search operations is: %d ",x);
-	System.out.println("");
+
 
 	}
 	

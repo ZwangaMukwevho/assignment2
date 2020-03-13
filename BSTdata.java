@@ -58,11 +58,13 @@ public class BSTdata{
 	try{
 	String value2 = BSTobj.find(new LSObject(key,"")).data.getZones();
 	System.out.format("match found was %s ",key);
-	System.out.println("Which means: ");
+	System.out.println("Which means load shedding of: ");
 	System.out.format("Stage %s , on the %sth , at %s:00 ",a,b,c);			
 	System.out.format("At zone %s ",value2);
+	System.out.println("");
 	System.out.format("Number of insert comparisons is %d", BSTobj.SearchCount());
-	System.out.format("Number of search comparisons is %d: ", BSTobj.countOps());
+	System.out.println("");
+	System.out.format("Number of search comparisons is %d ", BSTobj.countOps());
 	System.out.println("");
 	    }
 	catch(NullPointerException e) 
@@ -70,7 +72,8 @@ public class BSTdata{
 	   System.out.format("no match was found for: %s",key);
 	System.out.println("");
 	   System.out.format("Number of insert comparisons is %d ", BSTobj.SearchCount());
-	   System.out.format("Number of search comparisons is %d: ", BSTobj.countOps());
+	   System.out.println("");
+	   System.out.format("Number of search comparisons is %d ", BSTobj.countOps());
 	System.out.println("");
            
         } 			
@@ -102,6 +105,8 @@ public class BSTdata{
 	String key = c;
 	BinarySearchTree<LSObject> BSTobj = new BinarySearchTree<LSObject>();
         DataCollection1(d,BSTobj);
+
+	try{
 	BSTobj.find(new LSObject(key,""));
 	
 	// Output
@@ -109,7 +114,15 @@ public class BSTdata{
 		keyArr[0] = BSTobj.countOps();		
 		keyArr[1] = BSTobj.SearchCount();		
 	
-	return keyArr;		
+	return keyArr;}
+	catch(Exception e){
+		int[] keyArr = new int[2];
+		keyArr[0] = 0;		
+		keyArr[1] = 0;		
+	
+	return keyArr;
+
+		}		
 	}
 	
 	

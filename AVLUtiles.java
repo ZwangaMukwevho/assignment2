@@ -56,21 +56,22 @@ public class AVLUtiles{
 	try{
 	String value2 = AVLobj.find(new LSObject(key,"")).data.getZones();
 	System.out.format("match found was %s ",key);
-	System.out.println("Which means: ");
+	System.out.println("Which means load shedding of: ");
 	System.out.format("Stage %s , on the %sth , at %s:00 ",a,b,c);			
 	System.out.format("At zone %s ",value2);
-	System.out.format("Number of insert comparisons is %d: ", AVLobj.countInsert());
 	System.out.println("");
-	System.out.format("Number of search comparisons is %d: ", AVLobj.countFind());
+	System.out.format("Number of insert comparisons is %d ", AVLobj.countInsert());
+	System.out.println("");
+	System.out.format("Number of search comparisons is %d ", AVLobj.countFind());
 	System.out.println("");
 	    }
 	catch(NullPointerException e) 
         { 
 	System.out.format("no match was found for: %s",key);
 	System.out.println("");
-	System.out.format("Number of insert comparisons is %d: ", AVLobj.countInsert());
+	System.out.format("Number of insert comparisons is %d ", AVLobj.countInsert());
 	System.out.println("");
-	System.out.format("Number of search comparisons is %d: ", AVLobj.countFind());
+	System.out.format("Number of search comparisons is %d ", AVLobj.countFind());
 	System.out.println("");} 			
 				
 	}
@@ -89,12 +90,12 @@ public class AVLUtiles{
 
 	public static int[] printAreas2(String a,String c)  throws FileNotFoundException
 	{
-	String check = "false";
 	String key = a;
 	AVLTree<LSObject> AVLobj = new AVLTree<LSObject> ();
         DataCollection(c,AVLobj);
 	
 	try{
+	String value2 = AVLobj.find(new LSObject(key,"")).data.getZones();
 	int[] Arr = new int[2];
 		Arr[0] = AVLobj.countInsert();		
 		Arr[1] = AVLobj.countFind();		
@@ -102,7 +103,7 @@ public class AVLUtiles{
 	return Arr;
 	
 	    }
-	catch(NullPointerException e) 
+	catch(Exception e) 
         { int[] Arr = new int[2];
 		Arr[0] = 0;		
 		Arr[1] = 0;		

@@ -39,11 +39,13 @@ public static void main(String[] args)
     int bestcase = 100000; //impossible by default,
     int worstcase = 0;
     int counter = 0;
+    int BSTinsert = 0;
 
     // Array best, worst and avarage case
     int AVLBestcase = 1000000;
     int AVLWorstcase = 0;
     int AVLAveragecase = 0;
+    int AVLinsert = 0;
 
 while(sc.hasNextLine())
 	{
@@ -66,7 +68,7 @@ while(sc.hasNextLine())
 	// Calculating best, worst and avarage case for BST and AVL
 	counter = counter + 1;
 	avaragecase = avaragecase + CountArr[0];
-	AVLAveragecase = AVLAveragecase + AVLArr[0];
+	AVLAveragecase = AVLAveragecase + AVLArr[1];
 	
         //bestcase for BST
 	int[] bestcaseArr = new int[1];
@@ -76,7 +78,7 @@ while(sc.hasNextLine())
 
 	//Bestcase for AVL
 	int[] bestcaseArr1 = new int[1];
-	bestcaseArr1[0] = AVLArr[0];
+	bestcaseArr1[0] = AVLArr[1];
 	if(bestcaseArr1[0]<=AVLBestcase){
 	AVLBestcase = bestcaseArr1[0];}
 	
@@ -89,10 +91,13 @@ while(sc.hasNextLine())
 
 	//worstcase for avl
 	int[] worstcaseArr1 = new int[1];
-	worstcaseArr1[0] = AVLArr[0];
+	worstcaseArr1[0] = AVLArr[1];
 	if(worstcaseArr1[0]>=AVLWorstcase){
 	AVLWorstcase = worstcaseArr1[0];}
-	
+
+	// The best, worst and average case of inserting in the AVL and BST trees
+	BSTinsert = CountArr[1];
+	AVLinsert = AVLArr[0];
 
 	}
 	
@@ -100,6 +105,7 @@ while(sc.hasNextLine())
 	avaragecase = avaragecase/counter;
 	AVLAveragecase = AVLAveragecase/counter;
 
+        // Printing out the best, worst and avarage case of each statement to the text files
 	writer.println("BST search cases");
 	Outputline = String.format("%13s %13s %13s \r\n","BestCase |", " WorstCase |", "AverageCase|");
 	writer.println(Outputline);
@@ -111,6 +117,20 @@ while(sc.hasNextLine())
 	writer.println(Outputline);
 	Outputline = String.format("%13d %13d %13d  \r\n",AVLBestcase , AVLWorstcase,AVLAveragecase);
 	writer.println(Outputline);
+	
+	
+	writer.println("BST insert cases");
+	Outputline = String.format("%13s %13s %13s \r\n","BestCase |", " WorstCase |", "AverageCase|");
+	writer.println(Outputline);
+	Outputline = String.format("%13d %13d %13d  \r\n", BSTinsert, BSTinsert,BSTinsert*counter/counter);
+	writer.println(Outputline);
+	
+	writer.println("AVL insert Cases");
+	Outputline = String.format("%13s %13s %13s \r\n", "BestCase |", " WorstCase |", "AverageCase|");
+	writer.println(Outputline);
+	Outputline = String.format("%13d %13d %13d  \r\n", AVLinsert, AVLinsert,AVLinsert*counter/counter);
+	writer.println(Outputline);
+	
 
 	
 	

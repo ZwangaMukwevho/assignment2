@@ -11,17 +11,26 @@ import javax.swing.JPanel;
 
 public class GUI{
 	public static void main(String[] args){
-	
 	JFrame frame = new JFrame("LoadShed App");
   
-       	JLabel labelName = new JLabel("Search");
-        JLabel labelDescription = new JLabel("Enter Description: ");
-        JTextField textName = new JTextField(20);
+	// Creating labels
+       	JLabel labelResults = new JLabel("Results");
+	labelResults.setOpaque(true);
+	labelResults.setForeground(Color.WHITE);
+	labelResults.setBackground(Color.ORANGE);
+	labelResults.setFont(new Font("Tahoma", Font.ITALIC, 20));
+
+
+        JLabel line = new JLabel("--------------------------------------------------");
+	line.setForeground(Color.RED);
+
+        JTextField searchArea = new JTextField(30);
         JTextField textDescription = new JTextField(20);
 
 	final Color VERY_LIGHT_RED = new Color(255,102,102);
 	final Color pop = new Color(0,0,153);
 	final Color pop1 = new Color(51,153,255);
+
 	// Creating a button
         JButton searchButton = new JButton("SEARCH");
 	searchButton.setBackground(Color.ORANGE);
@@ -38,11 +47,31 @@ public class GUI{
         constraints.insets = new Insets(10, 10, 10, 10);
           
         // add components to the panel
+	constraints.gridx = 0;
+	constraints.gridy = 0;
+	constraints.gridwidth = 2;
+        newPanel.add(searchArea, constraints);
+
         constraints.gridx = 0;
-        constraints.gridy = 0;
+        constraints.gridy = 1;
 	constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;     
         newPanel.add(searchButton, constraints);
+
+ 	constraints.gridx = 0;
+        constraints.gridy = 3;
+	constraints.gridwidth = 2;
+        constraints.anchor = GridBagConstraints.CENTER;     
+        newPanel.add(line, constraints);	
+
+	constraints.gridx = 0;
+	constraints.gridy = 4;
+	constraints.gridwidth = 2;
+        newPanel.add(labelResults, constraints);
+
+	
+
+	
 	
 	//newPanel.add(buttonLogin, constraints);
           
@@ -51,12 +80,11 @@ public class GUI{
           
         // add the panel to this frame
         //add(newPanel);
-          
-        //pack();
+         
         //setLocationRelativeTo(null);
-	frame.setSize(250,250);
+	//frame.setSize(250,250);
 	frame.add(newPanel); // Adds Button to content pane of frame
-	//frame.pack();
+	frame.pack();
 	frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 

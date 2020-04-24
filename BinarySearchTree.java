@@ -54,7 +54,7 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
          return (node.left == null) ? null : find (e, node.left);
          	}
       else{
-	//count = count + 1;
+	count = count + 1;
          return (node.right == null) ? null : find (e, node.right);
 		}
    }

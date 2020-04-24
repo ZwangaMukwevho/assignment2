@@ -124,6 +124,43 @@ public class BSTdata{
 
 		}		
 	}
+
+	public static String printAreas3(String a, String b, String c)  throws FileNotFoundException
+	{
+
+	String key = a + "_"+b+"_"+c;
+	String output = "";
+	BinarySearchTree<LSObject> BSTobj = new BinarySearchTree<LSObject>();
+        DataCollection1("Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt",BSTobj);
+	
+	try{
+	String value2 = BSTobj.find(new LSObject(key,"")).data.getZones();
+	output = "match found was "+key +"\n";
+	output = output.concat("Which means load shedding of: \n");
+	output = output+ "Stage "+a+"on the "+b+"th"+" , at "+c+":00";			
+	output = output.concat("At zones ");
+	output = output + value2;
+	output = output.concat("\nNumber of insert comparisons is ");
+	output = output + BSTobj.SearchCount();
+	output = output.concat("\nNumber of search comparisons is ");
+	output = output + BSTobj.countOps();
+	return output;
+	    }
+	catch(NullPointerException e) 
+        { 
+	output = "no match was found for: "+key;
+	output = output.concat("\nNumber of insert comparisons is ");
+	output = output + BSTobj.SearchCount();
+	output = output.concat("\nNumber of search comparisons is ");
+	output = output + BSTobj.countOps();
+	return output;
+           
+        } 			
+	
+			
+	}
+
+	
 	
 	
 }

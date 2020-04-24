@@ -111,6 +111,43 @@ public class AVLUtiles{
 	return Arr;			
 	}
 		}
+	
+	 /** 
+	*searches for key in an AVLTree and also calculate the number of comparisons made when searching
+	*@param Strings which represent a key that is to be searched for in an array
+	*@return void
+	*/
+	public static String printAreas2(String a, String b, String c)  throws FileNotFoundException
+	{
+	String output = "";
+	String key = a + "_"+b+"_"+c;
+	AVLTree<LSObject> AVLobj = new AVLTree<LSObject> ();
+        DataCollection("Load_Shedding_All_Areas_Schedule_and_Map.clean.final.txt",AVLobj);
+	
+	try{
+	String value2 = AVLobj.find(new LSObject(key,"")).data.getZones();
+	output = "match found was "+key +"\n";
+	output = output.concat("Which means load shedding of: \n");
+	output = output+ "Stage "+a+"on the "+b+" , at "+c+":00";			
+	output = output.concat("At zones ");
+	output = output + value2;
+	output = output.concat("\nNumber of insert comparisons is ");
+	output = output + AVLobj.countInsert();
+	output = output.concat("\nNumber of search comparisons is ");
+	output = output + AVLobj.countFind();
+	return output;
+	    }
+	catch(NullPointerException e) 
+        {
+	output = "no match was found for: "+key;
+	output = output.concat("\nNumber of insert comparisons is ");
+	output = output + AVLobj.countInsert();
+	output = output.concat("\nNumber of search comparisons is ");
+	output = output +AVLobj.countFind();
+	return output;
+	} 			
+				
+	}
 }
 
 

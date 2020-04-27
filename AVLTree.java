@@ -49,18 +49,18 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
    {
       fixHeight (p);
 	
-	insertCount = insertCount + 1;
+	
       if (balanceFactor (p) == 2)
       {
-	//insertCount = insertCount + 1;
+	
          if (balanceFactor (p.right) < 0)
             p.right = rotateRight (p.right);
          return rotateLeft (p);
       }
-	//insertCount = insertCount + 1;
+	
       if (balanceFactor (p) == -2)
       {
-	//insertCount = insertCount + 1;
+	
          if (balanceFactor (p.left) > 0)
             p.left = rotateLeft (p.left);
          return rotateRight (p);
@@ -73,15 +73,13 @@ public class AVLTree<dataType extends Comparable<? super dataType>> extends Bina
       root = insert (d, root);
    }
    public BinaryTreeNode<dataType> insert ( dataType d, BinaryTreeNode<dataType> node )
-   {
-	insertCount = insertCount + 1;	
+   {	
       if (node == null){
          return new BinaryTreeNode<dataType> (d, null, null);}
+	insertCount = insertCount+1;
       if (d.compareTo (node.data) <= 0){
-	//insertCount = insertCount +1;
          node.left = insert (d, node.left);}
       else{
-	//insertCount = insertCount +1;
          node.right = insert (d, node.right);}
       return balance (node);
    }

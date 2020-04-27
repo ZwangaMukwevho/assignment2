@@ -9,7 +9,8 @@ import java.io.FileNotFoundException;
         */
 class LSBSTApp
 {
-	/** @return void
+	/** @return void, [The method returns nothing]
+	*@param Strings which represent a key that is to be searched for the Binary Search Tree
 	*This method prints out the areas to the command line
 	*/
 	public static void main(String[] args) throws FileNotFoundException

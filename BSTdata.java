@@ -98,7 +98,7 @@ public class BSTdata{
 	* method used for part 5 when automating the searching process
 	*searches for key in a BinarySearchTree and also calculate the number of comparisons made when searching
 	*@param Strings which represent a key that is to be searched for in an array
-	*@return the number of comparisons made when searching and print out the item if it was found while searching
+	*@return the number of comparisons made when searching and inserting the data in the AVLTree
 	*/
 	public static int[]  printAreas2(String c, String d ) throws FileNotFoundException
 	{
@@ -125,6 +125,12 @@ public class BSTdata{
 		}		
 	}
 
+	 /** 
+	* method used for the Graphic User Interphase to handle the output to the user
+	*searches for key in a BinarySearchTree and also calculate the number of comparisons made when searching and inserting the data to the Binary Search Tree
+	*@param Strings which represent a key that is to be searched for in an array
+	*@return a string which tells the user whether a match was found or not with details of the operations that took place during the search 
+	*/
 	public static String printAreas3(String a, String b, String c)  throws FileNotFoundException
 	{
 

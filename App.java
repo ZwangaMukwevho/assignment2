@@ -10,6 +10,11 @@ import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import java.io.FileNotFoundException; 
 
+/** 
+        * This class that creates a Graphical User Interphase which allows user to search for the AVLTree and the Binary Search Tree based on the keys
+        * @author: Zwanga
+*/
+
 public class App extends JFrame {
 
 	static JTextField searchArea = new JTextField(7);
@@ -20,8 +25,18 @@ public class App extends JFrame {
 	static JTextArea outputDisplay = new JTextArea(15, 30);
 	static JScrollPane scrollPane = new JScrollPane(outputDisplay);  
 
-
+	/** 
+        * This is the inner class of the App class that is acts as a listener for events [clicking of a button]
+	* This class implements Action listener and overrides the method actioPerformed of action listener
+        * @author: Zwanga
+	*/
 	public static class ButtonListener implements ActionListener {
+
+	/** 
+        * This is the overriding of the method actionPerformed which responsible for responsible for handling what happens when listeners recieve events 
+      	*@param String which stores the event that was fired to the listeners 
+	*@return The function returns nothing
+	*/
 		 public void actionPerformed(ActionEvent e) {
 			String actionCommand = e.getActionCommand();
 
@@ -60,17 +75,24 @@ public class App extends JFrame {
 	}}	
 
 	
-
+	/** 
+	*This method acts as the driver method for the GUI, it is where the Graphical User Interphase is called when it is run
+	* It handles the an error by throwing the FIleNotFoundException for when the is no text file in which data is being read from is not found
+	*@return This method returns nothing
+	*/
 	public static void main(String[] args) throws FileNotFoundException, Exception{
-		//appDemo gui = new appDemo();
-		//Demo; 
 		gui();
 	}
 
+	/** 
+	*This Method creates the visual components of the Graphical User Interphase
+	*It handles the an error by throwing the FIleNotFoundException for when the is no file found
+	*@return This method returns nothing
+	*@param This method takes no parameters 
+	*/
 	public static void gui() throws FileNotFoundException, Exception{
 	
 	JFrame frame = new JFrame("LoadShed App");
-  
 	JTextArea outputDisplay = new JTextArea(15, 30);
 
 
@@ -150,12 +172,7 @@ public class App extends JFrame {
         constraints.anchor = GridBagConstraints.CENTER;     
         newPanel.add(searchButton1, constraints);	
 
-	//constraints.gridx = 0;
-	//constraints.gridy = 5;
-	//constraints.gridwidth = 2;
-        //newPanel.add(searchButton, constraints);
-
-	//outputDisplay.setBackround(Color.YELLOW);	
+		
 	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS); 
 	
@@ -170,16 +187,11 @@ public class App extends JFrame {
         newPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "LoadShed App"));
           
         // add the panel to this frame
-        //add(newPanel);  
-        //setLocationRelativeTo(null);
-	//frame.setSize(250,250);
 	frame.add(newPanel); // Adds Button to content pane of frame
 	frame.pack();
 	frame.setLocationRelativeTo(null);
 	frame.setVisible(true); 
         
-	
-	//f.setLocation(300,200);
 
 	}
 	

@@ -76,9 +76,9 @@ public class AVLUtiles{
 				
 	}
 
-/** 
-	*searches for key in an AVLTree and also calculate the number of comparisons made w
-	*@param no parameters
+	/** 
+	*This methed reads a text file, loads it to an AVLTree, and traverses though the Tree inOrder and prints out each item in the AVLTree
+	*@param this method does not take any parameters
 	*@return void
 	*/
 	public static void printAllAreas()  throws FileNotFoundException
@@ -88,6 +88,12 @@ public class AVLUtiles{
 	AVLobj.levelOrder();
 	}
 
+	 /** 
+	* method used for part 5 when automating the searching process
+	*searches for key in an ALVTree and also calculate the number of comparisons made when searching and inserting the data in the AVLTree
+	*@param Strings which represent a key that is to be searched for in an array
+	*@return the number of comparisons made when searching and inserting the data in the AVLTree
+	*/
 	public static int[] printAreas2(String a,String c)  throws FileNotFoundException
 	{
 	String key = a;
@@ -112,10 +118,11 @@ public class AVLUtiles{
 	}
 		}
 	
-	 /** 
-	*searches for key in an AVLTree and also calculate the number of comparisons made when searching
+	  /** 
+	* method used for the Graphic User Interphase to handle the output to the user
+	*searches for key in the AVLTree and also calculate the number of comparisons made when searching and inserting the data to the Binary Search Tree
 	*@param Strings which represent a key that is to be searched for in an array
-	*@return void
+	*@return a string which tells the user whether a match was found or not with details of the operations that took place during the search 
 	*/
 	public static String printAreas2(String a, String b, String c)  throws FileNotFoundException
 	{

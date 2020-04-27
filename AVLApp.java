@@ -10,6 +10,11 @@ import java.io.FileNotFoundException;
 
 
 public class AVLApp{
+
+	/** @return void, [The method returns nothing]
+	*@param Strings which represent a key that is to be searched for the AVLTree
+	*This method prints out the areas to the command line
+	*/
 public static void main(String[] args) throws FileNotFoundException
 
 
